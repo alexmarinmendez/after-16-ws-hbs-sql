@@ -1,47 +1,34 @@
-let products = require('../models/product.model')
+const knex = require('knex')
 
 class ProductManager {
+    constructor(options, tableName) {
+        knex(options).schema.createTable(tableName, table => {
+            table.increments('id')
+            table.string('title', 20)
+            table.integer('price')
+            table.string('thumbnail', 200)
+        })
+            .then(() => console.log('Table created!'))
+            .catch(err => console.log(err))
+    }
     create = (product) => {
-        let id
-        if (products.length === 0) id = 1
-        else id = products[products.length-1].id+1
-        product.price = parseInt(product.price)
-        product = {
-            id,
-            ...product
-        }
-        products.push(product)
-        return products
+        return []
     }
 
     findAll = () => {
-        return products
+        return []
     }
 
     findById = (id) => {
-        id = parseInt(id)
-        return products.find(item => item.id === id)
+        return {}
     }
 
     update = (id, product) => {
-        id = parseInt(id)
-        let newProducts = products.map(item => {
-            if (item.id === id) {
-                return {
-                    id,
-                    ...product
-                }
-            } else return item
-        })
-        products = newProducts
-        return this.findById(id)
+        return {}
     }
 
     delete = (id) => {
-        id = parseInt(id)
-        let newProducts = products.filter(item => item.id !== id)
-        products = newProducts
-        return products
+        return []
     }
 }
 
