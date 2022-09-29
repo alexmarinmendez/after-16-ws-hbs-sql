@@ -21,6 +21,14 @@ USE coder_desafio_8
 * Escribir el constructor de la clase ProductManager (debe recibir 2 argumentos: las opciones de conexión y el nombre de la tabla que debe crear)
 * Modificar el router de Productos de tal manera que al instanciar la clase ProductManager se le brinde las opciones de conexión de Knex y el nombre de la tabla 'products'
 
+## Paso 4
+* Agregar, en el constructor de ProductManager, una validación para cuando la tabla ya existe (en el constructor, si la tabla no existe, se crea; caso contrario, ya no se crea)
+* Asignar 2 propiedades a la clase ProductManager (las necesitaremos para implementar los métodos)
+```
+this.database
+this.table
+```
+
 ## Autor ✒️
 
 * **Alex Marin Mendez** - *FullStack Javascript Web Developer*, 29 de setiembre de 2022 - [alexmarinmendez](https://github.com/alexmarinmendez)
